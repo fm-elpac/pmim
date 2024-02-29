@@ -1,0 +1,8 @@
+[Unit]
+Description=pmim-server
+
+[Service]
+ExecStart=deno run -A --unstable-kv ${HOME}/.local/pmim/server/main.ts
+
+[Install]
+WantedBy=default.target

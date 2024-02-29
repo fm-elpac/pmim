@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
+
+    - run: deno fmt --check
+
+    # server/
+    - run: cd server && deno task check
+    - run: cd server && deno task build
+
+    # 本地缓存依赖
+    - run: cd server && deno vendor main.ts
+    - run: deno run --allow-read --allow-write ci/fix_deno_json.js server/deno.json
+
+    - run: cp LICENSE server/ && cp README.md server/
+
+    - run: |
+        tar --zstd -cvf pmim-server.tar.zst server
+    - uses: actions/upload-artifact@v4
+      with:
+        name: pmim-server
+        path: pmim-server.tar.zst
