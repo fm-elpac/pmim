@@ -31,7 +31,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "nodeModulesDir": true,
 
-  "unstable": ["kv"]
+  "unstable": ["kv"],
+  "nodeModulesDir": false
 }
