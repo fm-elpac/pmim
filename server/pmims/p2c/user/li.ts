@@ -70,7 +70,7 @@ async function 读取ascii频率(): Promise<Array<string>> {
   for (const i of r) {
     o.push([
       i[0].at(-1) as string,
-      i[1] as number,
+      Number.parseInt(i[1] as bigint as unknown as string),
     ]);
   }
   // 排序
@@ -103,7 +103,7 @@ async function 读取扩展频率(o_id: number | string): Promise<Array<string>>
   for (const i of r) {
     o.push([
       i[0].at(-1) as string,
-      i[1] as number,
+      Number.parseInt(i[1] as bigint as unknown as string),
     ]);
   }
   // 排序
