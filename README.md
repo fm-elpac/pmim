@@ -13,12 +13,28 @@
 
 ---
 
+本输入法完全在本地运行, 数据都存储在本机, 不会通过网络发送数据.
+
 **建议**: 每个用户在使用之前, 读一遍本输入法的源代码.
 (本输入法的源代码一共只有几千行, 且大部分为 JavaScript. )
 
 - GNU/Linux 平台 (ibus): <https://github.com/fm-elpac/pmim-ibus>
 
 - Android 平台: <https://github.com/fm-elpac/pmim-apk>
+
+## 相关文章
+
+- 《多平台拼音输入法软件的开发》
+  - <https://www.bilibili.com/read/cv32669567/>
+  - <https://zhuanlan.zhihu.com/p/685249242>
+  - <https://juejin.cn/post/7343902139822211108>
+  - <https://blog.csdn.net/secext2022/article/details/136458045>
+
+- 《自制: 7 天手搓一个拼音输入法》
+  - <https://www.bilibili.com/read/cv33084539/>
+  - <https://zhuanlan.zhihu.com/p/685676820>
+  - <https://juejin.cn/post/7343902899095060499>
+  - <https://blog.csdn.net/secext2022/article/details/136520721>
 
 ## 相关代码仓库
 
