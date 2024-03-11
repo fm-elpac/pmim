@@ -7,6 +7,9 @@ import { du } from "../db/mod.ts";
 export interface 统计参数 {
   // 统计的日期, 比如 `2024-02-25`
   d: string;
+
+  // s = 1: 不输出每分钟的原始数据
+  s?: number;
 }
 
 // deno-kv: 过期 30 天
@@ -137,7 +140,7 @@ export async function 测量(提交: 提交文本参数) {
 }
 
 export async function 统计结果(参数: 统计参数) {
-  const { d } = 参数;
+  const { d, s } = 参数;
   // 按 时分 为数据分组
   const 数据: Record<string, Record<string, number>> = {};
 
@@ -222,7 +225,7 @@ export async function 统计结果(参数: 统计参数) {
   };
 
   // 输出结果
-  return {
+  const o = {
     [d]: {
       分钟,
       统计,
@@ -230,6 +233,11 @@ export async function 统计结果(参数: 统计参数) {
       数据,
     },
   };
+  // s = 1
+  if (1 == s) {
+    o[d].数据 = {};
+  }
+  return o;
 }
 
 // 删除旧的统计数据

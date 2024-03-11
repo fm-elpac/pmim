@@ -226,8 +226,65 @@ HTTP 请求路径: `/pmims_api/`
   {}
   ```
 
+- POST `/pmims_api/db`
+
+  获取数据库信息 (ds, du)
+
+  示例:
+
+  ```json
+  > curl -H x-token:(cat /run/user/1000/pmim/server_token) -X POST http://127.0.0.1:20200/pmims_api/db | jq '.'
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                  Dload  Upload   Total   Spent    Left  Speed
+  100   592  100   592    0     0  16154      0 --:--:-- --:--:-- --:--:-- 16444
+  {
+    "内置数据库文件": "/home/s2/.config/pmim/pmim_sys.db",
+    "用户数据库文件": "/home/s2/.config/pmim/pmim_user.db",
+    "du": {
+      "version": "pmim_user_db version 0.1.0",
+      "v": {
+        "pmim": "pmim-server v0.1.0-a1",
+        "deno_version": {
+          "deno": "1.40.4",
+          "v8": "12.1.285.6",
+          "typescript": "5.3.3"
+        },
+        "_last_update": "2024-02-18T18:37:01.096Z"
+      },
+      "u_ulid": "01HRNCQVGKVECTFZBHKBZD81XD"
+    },
+    "ds": {
+      "version": "pmim_sys_db version 0.1.0",
+      "v": {
+        "pmim": "pmim version 0.1.0",
+        "deno_version": {
+          "deno": "1.41.2",
+          "v8": "12.1.285.27",
+          "typescript": "5.3.3"
+        },
+        "n": "胖喵拼音内置数据库 (6w)",
+        "_last_update": "2024-03-11T00:37:23.225Z"
+      }
+    }
+  }
+  ```
+
 ## 输入测量
 
 输入测量 (统计) 功能.
+
+- POST `/pmims_api/m`
+
+  获取统计结果.
+
+  ```ts
+  export interface 统计参数 {
+    // 统计的日期, 比如 `2024-02-25`
+    d: string;
+
+    // s = 1: 不输出每分钟的原始数据
+    s?: number;
+  }
+  ```
 
 TODO

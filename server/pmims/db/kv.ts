@@ -124,3 +124,51 @@ export function ds(): Deno.Kv {
 export function du(): Deno.Kv {
   return 库.u!;
 }
+
+export interface 数据库信息结果 {
+  ds?: {
+    version?: string;
+    v?: Record<string, unknown>;
+  };
+  du?: {
+    version?: string;
+    v?: Record<string, unknown>;
+    u_ulid?: string;
+  };
+  内置数据库文件?: string;
+  用户数据库文件?: string;
+}
+
+// 获取数据库信息 (ds, du)
+export async function 数据库信息(): Promise<数据库信息结果> {
+  const o: 数据库信息结果 = {};
+  o.内置数据库文件 = 内置数据库文件();
+  o.用户数据库文件 = 用户数据库文件();
+  if (null != 库.u) {
+    o.du = {};
+    {
+      const { value } = await 库.u.get(["pmim_db", "version"]);
+      o.du.version = value as string;
+    }
+    {
+      const { value } = await 库.u.get(["pmim_db", "v"]);
+      o.du.v = value as Record<string, unknown>;
+    }
+    {
+      const { value } = await 库.u.get(["pmim_db", "u_ulid"]);
+      o.du.u_ulid = value as string;
+    }
+  }
+  if (null != 库.s) {
+    o.ds = {};
+    {
+      const { value } = await 库.s.get(["pmim_db", "version"]);
+      o.ds.version = value as string;
+    }
+    {
+      const { value } = await 库.s.get(["pmim_db", "v"]);
+      o.ds.v = value as Record<string, unknown>;
+    }
+  }
+  return o;
+}

@@ -11,6 +11,7 @@ import * as $pmims_api_ci from "./routes/pmims_api/ci.ts";
 import * as $pmims_api_commit from "./routes/pmims_api/commit.ts";
 import * as $pmims_api_conf_get from "./routes/pmims_api/conf_get.ts";
 import * as $pmims_api_conf_set from "./routes/pmims_api/conf_set.ts";
+import * as $pmims_api_db from "./routes/pmims_api/db.ts";
 import * as $pmims_api_f from "./routes/pmims_api/f.ts";
 import * as $pmims_api_ibus_sse from "./routes/pmims_api/ibus_sse.ts";
 import * as $pmims_api_li from "./routes/pmims_api/li.ts";
@@ -36,6 +37,7 @@ const manifest = {
     "./routes/pmims_api/commit.ts": $pmims_api_commit,
     "./routes/pmims_api/conf_get.ts": $pmims_api_conf_get,
     "./routes/pmims_api/conf_set.ts": $pmims_api_conf_set,
+    "./routes/pmims_api/db.ts": $pmims_api_db,
     "./routes/pmims_api/f.ts": $pmims_api_f,
     "./routes/pmims_api/ibus_sse.ts": $pmims_api_ibus_sse,
     "./routes/pmims_api/li.ts": $pmims_api_li,

@@ -1,4 +1,4 @@
-export { ds, du, 关闭数据库, 初始化数据库 } from "./kv.ts";
+export { ds, du, 关闭数据库, 初始化数据库, 数据库信息 } from "./kv.ts";
 export {
   db_version,
   freq_ascii,
