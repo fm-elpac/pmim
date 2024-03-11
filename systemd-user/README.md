@@ -1,4 +1,4 @@
-# systemd user unit
+# (仅供参考) systemd user unit
 
 - 安装位置:
 

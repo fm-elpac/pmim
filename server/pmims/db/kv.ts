@@ -39,10 +39,29 @@ const 库: {
   u: undefined,
 };
 
+// 将整个内置数据库全部载入内存
+async function 内置数据库载入内存(ds: Deno.Kv): Promise<Deno.Kv> {
+  // 内存中的 sqlite 数据库
+  const o = await Deno.openKv(":memory:");
+  logi(" db_sys: 开始加载内置数据库");
+
+  // 加载数据的条数
+  let c = 0;
+  for await (const i of ds.list({ prefix: [] })) {
+    await o.set(i.key, i.value);
+    c += 1;
+  }
+  // 记得关闭数据库
+  ds.close();
+
+  logi(" db_sys: 内置数据库已全部载入内存 (" + c + ")");
+  return o;
+}
+
 // 键: 数据库版本
 const K_DB_VERSION = ["pmim_db", "version"];
 
-async function 初始化内置数据库() {
+async function 初始化内置数据库(sdb_m = 0) {
   const 路径 = 内置数据库文件();
   logi(" db_sys: " + 路径);
 
@@ -53,7 +72,13 @@ async function 初始化内置数据库() {
     throw new Error("内置数据库版本错误 " + value);
   }
 
-  库.s = kv;
+  // 配置项: `c.sdb_m`
+  if (1 == sdb_m) {
+    logi(" db_sys: c.sdb_m = " + sdb_m);
+    库.s = await 内置数据库载入内存(kv);
+  } else {
+    库.s = kv;
+  }
 }
 
 // 检查用户数据库 ULID 标记
@@ -101,7 +126,11 @@ export async function 初始化数据库() {
   // 首先初始化用户数据库: 可以读取配置
   await 初始化用户数据库();
 
-  await 初始化内置数据库();
+  // 配置项: `c.sdb_m`
+  const K1 = ["data_u", "conf", "c.sdb_m"];
+  const { value } = await du().get(K1);
+
+  await 初始化内置数据库(value as number);
 }
 
 export async function 关闭数据库() {
