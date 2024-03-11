@@ -1,4 +1,5 @@
 import { join } from "$std/path/join.ts";
+import { ulid } from "ulidx";
 
 import {
   DB_SYS_VERSION,
@@ -55,6 +56,20 @@ async function 初始化内置数据库() {
   库.s = kv;
 }
 
+// 检查用户数据库 ULID 标记
+async function 检查ulid(kv: Deno.Kv) {
+  const K = ["pmim_db", "u_ulid"];
+  const { value } = await kv.get(K);
+  if (null != value) {
+    logi(" db_user: ULID " + value);
+  } else {
+    // 生成新的 ULID
+    const id = ulid();
+    logi(" db_user: ULID = " + id);
+    await kv.set(K, id);
+  }
+}
+
 async function 初始化用户数据库() {
   const 路径 = 用户数据库文件();
   logi(" db_user: " + 路径);
@@ -76,6 +91,8 @@ async function 初始化用户数据库() {
   } else if (value != DB_USER_VERSION) {
     throw new Error("用户数据库版本错误 " + value);
   }
+
+  await 检查ulid(kv);
 
   库.u = kv;
 }

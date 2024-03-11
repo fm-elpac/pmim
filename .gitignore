@@ -1,1 +1,4 @@
 tmp/
+
+server/deno_cache/
+server/deno_cache_ro/

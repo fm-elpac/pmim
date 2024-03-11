@@ -9,7 +9,12 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
-  "exclude": ["**/_fresh/*", "static/*"],
+  "exclude": [
+    "**/_fresh/*",
+    "static/*",
+    "**/deno_cache/*",
+    "**/deno_cache_ro/*"
+  ],
   "lint": {
     "rules": {
       "tags": ["fresh", "recommended"],
@@ -25,7 +30,8 @@
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "$std/": "https://deno.land/std@0.216.0/"
+    "$std/": "https://deno.land/std@0.216.0/",
+    "ulidx": "https://esm.sh/ulidx@2.3.0"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

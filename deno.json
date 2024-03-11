@@ -1,3 +1,8 @@
 {
-  "exclude": ["**/_fresh/*", "**/static/*"]
+  "exclude": [
+    "**/_fresh/*",
+    "**/static/*",
+    "**/deno_cache/*",
+    "**/deno_cache_ro/*"
+  ]
 }
