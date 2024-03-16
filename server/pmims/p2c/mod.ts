@@ -1,5 +1,6 @@
 // (p2c) 拼音核心: 拼音转汉字
 import { is_debug } from "../util/mod.ts";
+import { 内置初始化 } from "./sys/mod.ts";
 import { 全拼 } from "./util.ts";
 import { 混合 } from "./mix.ts";
 
@@ -18,5 +19,5 @@ export async function 拼音转汉字(拼音: 全拼): Promise<Array<string>> {
 }
 
 export async function 初始化() {
-  // TODO
+  await 内置初始化();
 }

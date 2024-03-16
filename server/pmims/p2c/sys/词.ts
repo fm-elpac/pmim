@@ -1,4 +1,5 @@
 // 内置词
+import { logi } from "../../util/log.ts";
 import { ds, pinyin_tgh, 读取多键, 读取多键1 } from "../../db/mod.ts";
 import {
   pin_yin,
@@ -9,6 +10,26 @@ import {
   来源_内置词,
 } from "../util.ts";
 import { u切分 } from "../uu.ts";
+import { 估计词, 初始化nc } from "./sys_dict_nc.ts";
+
+// 全局配置
+const etc = {
+  // 词库没有词的频率数据, 根据汉字平均频率估算词的频率
+  sys_dict_nc: 0,
+};
+
+export async function 内置词初始化() {
+  // 检查 sys_dict_nc
+  const { value } = await ds().get(["pmim_db", "sys_dict_nc"]);
+  if (1 == value) {
+    logi(": sys_dict_nc = " + value);
+    etc.sys_dict_nc = 1;
+  }
+
+  if (1 == etc.sys_dict_nc) {
+    await 初始化nc();
+  }
+}
 
 // 单个汉字的拼音匹配
 function 匹配拼音1(
@@ -59,6 +80,24 @@ function 拼接文本组(d: Array<Array<string>>): Array<string> {
   return Array.from(new Set(o));
 }
 
+async function 获取频率(词: Array<string>): Promise<Array<number>> {
+  if (1 == etc.sys_dict_nc) {
+    // 估计词的频率
+    const o: Array<number> = [];
+    for (const i of 词) {
+      o.push(await 估计词(i));
+    }
+    return o;
+  } else {
+    // 从内置数据库读取词的频率
+    const k3 = 词.map((i) => ["data", "dict", i.slice(0, 2), i]);
+    const 频率 = (await 读取多键1(ds(), k3)).map((i) =>
+      (null != i) ? i : 0
+    ) as Array<number>;
+    return 频率;
+  }
+}
+
 // 内置词: 2 个字及以上 (内置数据库)
 // 允许同时查询多个拼音
 export async function 内置词(拼音: 全拼): Promise<Array<候选项>> {
@@ -81,11 +120,7 @@ export async function 内置词(拼音: 全拼): Promise<Array<候选项>> {
     }
   }
 
-  // 获取频率
-  const k3 = 词.map((i) => ["data", "dict", i.slice(0, 2), i]);
-  const 频率 = (await 读取多键1(ds(), k3)).map((i) =>
-    (null != i) ? i : 0
-  ) as Array<number>;
+  const 频率 = await 获取频率(词);
 
   const o: Array<候选项> = [];
   for (let i = 0; i < 词.length; i += 1) {
