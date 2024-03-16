@@ -2,6 +2,9 @@
 
 <https://github.com/fm-elpac/pmim>
 
+正式名称: 紫腹巨蚊 (Toxorhynchites gravelyi) 系列 琼氏圆筛藻 (Coscinodiscus
+jonesianus) 软件
+
 ![CI](https://github.com/fm-elpac/pmim/actions/workflows/ci.yml/badge.svg)
 
 镜像:
