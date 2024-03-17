@@ -1,5 +1,6 @@
 {
   "exclude": [
+    "tmp/*",
     "**/_fresh/*",
     "**/static/*",
     "**/plugin/*",

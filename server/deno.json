@@ -31,7 +31,7 @@
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "$std/": "https://deno.land/std@0.216.0/",
+    "$std/": "https://deno.land/std@0.220.1/",
     "ulidx": "https://esm.sh/ulidx@2.3.0"
   },
   "compilerOptions": {

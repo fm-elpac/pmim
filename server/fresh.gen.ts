@@ -5,6 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $index from "./routes/index.ts";
+import * as $plugin_p_ from "./routes/plugin/[...p].ts";
 import * as $pmims_api_middleware from "./routes/pmims_api/_middleware.ts";
 import * as $pmims_api_a_sse from "./routes/pmims_api/a_sse.ts";
 import * as $pmims_api_ci from "./routes/pmims_api/ci.ts";
@@ -33,6 +34,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/index.ts": $index,
+    "./routes/plugin/[...p].ts": $plugin_p_,
     "./routes/pmims_api/_middleware.ts": $pmims_api_middleware,
     "./routes/pmims_api/a_sse.ts": $pmims_api_a_sse,
     "./routes/pmims_api/ci.ts": $pmims_api_ci,

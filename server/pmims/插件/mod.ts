@@ -27,3 +27,8 @@ export async function 初始化插件() {
 export function 插件列表(): Array<插件项> {
   return JSON.parse(JSON.stringify(etc.插件列表)) as Array<插件项>;
 }
+
+// 用于 routes/plugin/_middleware.ts
+export function 插件列表1(): Array<插件项> {
+  return etc.插件列表;
+}
