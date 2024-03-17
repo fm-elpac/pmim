@@ -18,3 +18,6 @@ static/
 
 # deno vendor
 vendor/
+
+# pmim plugin
+plugin/

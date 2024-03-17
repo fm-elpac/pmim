@@ -54,9 +54,6 @@ jonesianus) 软件
 
 - `pmim-ibus`: 支持 shift 键切换 中英文输入模式
 
-- `pmim-data-greatdict`: 300 万大词库. 数据来自 `pyim-greatdict`
-  <https://github.com/tumashu/pyim-greatdict>
-
 - 编译 Android deno: 目前没有编译成功 (替代 proot)
 
 - `ibrus --ibusd`: 使用 rust 重写 (替代) ibus-daemon (librush).

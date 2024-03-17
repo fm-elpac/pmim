@@ -269,6 +269,218 @@ HTTP 请求路径: `/pmims_api/`
   }
   ```
 
+- POST `/pmims_api/pl`
+
+  返回插件列表.
+
+  示例:
+
+  ```json
+  > curl -H x-token:(cat /run/user/1000/pmim/server_token) -X POST http://127.0.0.1:20200/pmims_api/pl | jq '.'
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                  Dload  Upload   Total   Spent    Left  Speed
+  100  5772  100  5772    0     0   842k      0 --:--:-- --:--:-- --:--:--  939k
+  [
+    {
+      "id": "pmim-2p-gbt34947",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-2p-gbt34947/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-2p-gbt34947",
+      "资源": "/home/s2/pmim/server/plugin/pmim-2p-gbt34947/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "双拼方案: 国家标准双拼 (GB/T 34947-2017)",
+          "描述": "胖喵拼音内置双拼方案 (2p_gbt34947)",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "双拼方案": "双拼.json"
+      }
+    },
+    {
+      "id": "pmim-2p-ms",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-2p-ms/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-2p-ms",
+      "资源": "/home/s2/pmim/server/plugin/pmim-2p-ms/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "双拼方案: 微软双拼",
+          "描述": "胖喵拼音内置双拼方案 (2p_ms)",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "双拼方案": "双拼.json"
+      }
+    },
+    {
+      "id": "pmim-2p-sogou",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-2p-sogou/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-2p-sogou",
+      "资源": "/home/s2/pmim/server/plugin/pmim-2p-sogou/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "双拼方案: 搜狗双拼",
+          "描述": "胖喵拼音内置双拼方案 (2p_sogou)",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "双拼方案": "双拼.json"
+      }
+    },
+    {
+      "id": "pmim-2p-xnhe",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-2p-xnhe/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-2p-xnhe",
+      "资源": "/home/s2/pmim/server/plugin/pmim-2p-xnhe/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "双拼方案: 小鹤双拼",
+          "描述": "胖喵拼音内置双拼方案 (2p_xnhe)",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "双拼方案": "双拼.json"
+      }
+    },
+    {
+      "id": "pmim-2p-zirjma",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-2p-zirjma/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-2p-zirjma",
+      "资源": "/home/s2/pmim/server/plugin/pmim-2p-zirjma/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "双拼方案: 自然码",
+          "描述": "胖喵拼音内置双拼方案 (2p_zirjma)",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "双拼方案": "双拼.json"
+      }
+    },
+    {
+      "id": "pmim-kbl-abcd7109",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-kbl-abcd7109/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-kbl-abcd7109",
+      "资源": "/home/s2/pmim/server/plugin/pmim-kbl-abcd7109/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "键盘布局: abcd7109",
+          "描述": "胖喵拼音内置键盘布局",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "键盘布局": "布局.json"
+      }
+    },
+    {
+      "id": "pmim-kbl-dvorak",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-kbl-dvorak/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-kbl-dvorak",
+      "资源": "/home/s2/pmim/server/plugin/pmim-kbl-dvorak/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "键盘布局: dvorak",
+          "描述": "胖喵拼音内置键盘布局",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "键盘布局": "布局.json"
+      }
+    },
+    {
+      "id": "pmim-kbl-qwerty",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-kbl-qwerty/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-kbl-qwerty",
+      "资源": "/home/s2/pmim/server/plugin/pmim-kbl-qwerty/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "键盘布局: qwerty",
+          "描述": "胖喵拼音内置键盘布局",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "键盘布局": "布局.json"
+      }
+    },
+    {
+      "id": "pmim-uis-bl",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-uis-bl/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-uis-bl",
+      "资源": "/home/s2/pmim/server/plugin/pmim-uis-bl/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "冰蓝 (胖喵拼音内置皮肤)",
+          "描述": "重水里超光速粒子发出的微光 ~",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "皮肤": {
+          "入口": "main.js",
+          "名称": "pmim-uis-bl",
+          "能力": [
+            "im0",
+            "im1",
+            "im2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pmim-uis-nc",
+      "描述文件": "/home/s2/pmim/server/plugin/pmim-uis-nc/pmimp.json",
+      "目录": "/home/s2/pmim/server/plugin/pmim-uis-nc",
+      "资源": "/home/s2/pmim/server/plugin/pmim-uis-nc/static",
+      "内置": 1,
+      "描述": {
+        "pmim_version": "0.1.0",
+        "插件信息": {
+          "名称": "暖橙 (胖喵拼音内置皮肤)",
+          "描述": "冬日里的一缕温暖 ~~",
+          "版本": "0.1.0",
+          "URL": "https://github.com/fm-elpac/pmim-ibus"
+        },
+        "默认启用": 1,
+        "皮肤": {
+          "入口": "main.js",
+          "名称": "pmim-uis-nc",
+          "能力": [
+            "im0",
+            "im1",
+            "im2",
+            "conf"
+          ]
+        }
+      }
+    }
+  ]
+  ```
+
 ## 输入测量
 
 输入测量 (统计) 功能.

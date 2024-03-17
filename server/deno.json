@@ -12,6 +12,7 @@
   "exclude": [
     "**/_fresh/*",
     "static/*",
+    "plugin/*",
     "**/deno_cache/*",
     "**/deno_cache_ro/*"
   ],

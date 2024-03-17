@@ -2,6 +2,7 @@
 import { loge, logi } from "./util/log.ts";
 import { 关闭数据库, 初始化数据库 } from "./db/mod.ts";
 import { 初始化口令 } from "./auth/mod.ts";
+import { 初始化插件 } from "./插件/mod.ts";
 import { 初始化ibus } from "./ibus/mod.ts";
 import * as pin_yin from "./pin_yin/mod.ts";
 import * as p2c from "./p2c/mod.ts";
@@ -36,4 +37,7 @@ export async function 初始化() {
 
   await 初始化口令();
   await 初始化ibus();
+
+  // 最后再初始化插件
+  await 初始化插件();
 }

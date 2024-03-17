@@ -18,6 +18,7 @@ import * as $pmims_api_li from "./routes/pmims_api/li.ts";
 import * as $pmims_api_m from "./routes/pmims_api/m.ts";
 import * as $pmims_api_p2c from "./routes/pmims_api/p2c.ts";
 import * as $pmims_api_pin_yin from "./routes/pmims_api/pin_yin.ts";
+import * as $pmims_api_pl from "./routes/pmims_api/pl.ts";
 import * as $pmims_api_psse from "./routes/pmims_api/psse.ts";
 import * as $pmims_api_user_gc from "./routes/pmims_api/user_gc.ts";
 import * as $pmims_api_user_rm from "./routes/pmims_api/user_rm.ts";
@@ -45,6 +46,7 @@ const manifest = {
     "./routes/pmims_api/m.ts": $pmims_api_m,
     "./routes/pmims_api/p2c.ts": $pmims_api_p2c,
     "./routes/pmims_api/pin_yin.ts": $pmims_api_pin_yin,
+    "./routes/pmims_api/pl.ts": $pmims_api_pl,
     "./routes/pmims_api/psse.ts": $pmims_api_psse,
     "./routes/pmims_api/user_gc.ts": $pmims_api_user_gc,
     "./routes/pmims_api/user_rm.ts": $pmims_api_user_rm,
