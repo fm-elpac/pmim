@@ -1,5 +1,5 @@
 // 程序版本号
-export const P_VERSION = "pmim-server v0.1.4";
+export const P_VERSION = "pmim-server v0.1.5";
 // 日志前缀
 export const P_LOG = "pmims";
 

@@ -17,28 +17,18 @@
     "**/deno_cache_ro/*"
   ],
   "lint": {
-    "rules": {
-      "tags": ["fresh", "recommended"],
-      "exclude": ["require-await"]
-    }
+    "rules": { "tags": ["fresh", "recommended"], "exclude": ["require-await"] }
   },
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.6.5/",
-    "preact": "https://esm.sh/preact@10.19.2",
-    "preact/": "https://esm.sh/preact@10.19.2/",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
-    "tailwindcss": "npm:tailwindcss@3.4.1",
-    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "$std/": "https://deno.land/std@0.220.1/",
+    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
+    "preact": "https://esm.sh/preact@10.19.6",
+    "preact/": "https://esm.sh/preact@10.19.6/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "$std/": "https://deno.land/std@0.223.0/",
     "ulidx": "https://esm.sh/ulidx@2.3.0"
   },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  },
-
+  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
   "unstable": ["kv"],
   "nodeModulesDir": false
 }
